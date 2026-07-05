@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block body %}
+<div class="container mt-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-8 text-center">
+      <div class="mb-4">
+        <i class="bi bi-lightbulb display-1 text-primary"></i>
+      </div>
+      <h1 class="fw-bold mb-3 animate__animated animate__fadeInDown">
+        Welcome to <span class="text-primary">Semantica</span>
+      </h1>
+      <p class="lead mb-4 animate__animated animate__fadeInUp">
+        Find jobs and career matches driven by 
+        <span class="fw-semibold text-primary">semantic search</span>.
+      </p>
+
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('index') }}" class="btn btn-lg btn-primary shadow-sm px-4 animate__animated animate__pulse animate__infinite">
+          Do Your First Search<i class="bi bi-person-circle ms-2"></i>
+        </a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="btn btn-lg btn-primary shadow-sm px-4 me-2 animate__animated animate__fadeInLeft">
+          <i class="bi bi-box-arrow-in-right me-1"></i> Sign in
+        </a>
+        <a href="{{ url_for('register') }}" class="btn btn-lg btn-outline-secondary shadow-sm px-4 animate__animated animate__fadeInRight">
+          <i class="bi bi-person-plus me-1"></i> Register
+        </a>
+      {% endif %}
+
+      <div class="mt-5">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 hover-shadow">
+              <div class="card-body">
+                <i class="bi bi-search display-5 text-primary mb-3"></i>
+                <h5 class="card-title fw-semibold">Smart Job Search</h5>
+                <p class="card-text text-muted">
+                  Leverage AI-powered semantic search to find jobs that truly match your skills and interests.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 hover-shadow">
+              <div class="card-body">
+                <i class="bi bi-graph-up-arrow display-5 text-success mb-3"></i>
+                <h5 class="card-title fw-semibold">Career Insights</h5>
+                <p class="card-text text-muted">
+                  Get personalized recommendations and insights to help you grow your career.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 hover-shadow">
+              <div class="card-body">
+                <i class="bi bi-people display-5 text-info mb-3"></i>
+                <h5 class="card-title fw-semibold">Community Support</h5>
+                <p class="card-text text-muted">
+                  Join a growing community of professionals and get support on your journey.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Animate.css CDN for animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+  .hover-shadow:hover {
+    box-shadow: 0 8px 32px rgba(13,110,253,0.15) !important;
+    transform: translateY(-4px) scale(1.03);
+    transition: all 0.2s;
+  }
+</style>
+{% endblock %}

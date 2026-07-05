@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+flask-bcrypt
+flask-login
+pandas
+sentence-transformers
+scikit-learn
+deep_translator
